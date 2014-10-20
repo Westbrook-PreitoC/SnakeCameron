@@ -89,12 +89,8 @@ function snakeUpdate() {
   if(snakeDirection === "down") {
       snakeHeadY++;
   }
-  
-  else {
-      snakeHeadX++;
-  }
-  
-  if(snakeDirection === "right"){
+   
+  else if(snakeDirection === "right"){
       snakeHeadX++;
   }
   
@@ -138,6 +134,15 @@ function snakeUpdate() {
       food.y = randomY;
   }
   
+  /* -------------------------------------------------------------------------
+   * Imput Function
+   * -------------------------------------------------------------------------
+   */
+  
   function keyboardHandler(event) {
       console.log(event);
+      
+      if (event.keyCode == "39") {
+          snakeDirection = "right";
+      }
   }
