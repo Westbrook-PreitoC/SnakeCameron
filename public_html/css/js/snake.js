@@ -98,7 +98,9 @@ function snakeUpdate() {
       
   }
   
-  else if(snakeDirection == "left")
+  else if(snakeDirection == "left"){
+      
+  }
   
   var snakeTail = snake.pop();
   snakeTail.x = snakeHeadX;
@@ -147,4 +149,6 @@ function snakeUpdate() {
       else if(event.keyCode == "40" && snakeDirection != "up"){
           snakeDirection = "down";
       }
+      
+      
   }    
