@@ -108,7 +108,7 @@ function snakeUpdate() {
         snakeHeadX--;
     }
 
-    checkFoodCollision(snakeHeadX, snakeHeadY);
+    checkFoodCollisions(snakeHeadX, snakeHeadY);
     checkWallCollisions(snakeHeadX, snakeHeadY);
     
     var snakeTail = snake.pop();
@@ -180,12 +180,16 @@ function checkFoodCollisions(snakeHeadX, snakeHeadY) {
             y: 0
         });
         snakeLength++;
+        setFoodPosition();
     }
 }
 
 function checkWallCollisions(snakeHeadX, snakeHeadY) {
-    if (snakeHeadX * snakeSize >= screenWidth || snakeHeadX * snakeSize < 0) {
-        setState("Game Over");
+    if (snakeHeadX * snakeSize >= screenWidth || snakeHeadX * snakeSize< 0) {
+        setState("GAME OVER");
+    }
+    if (snakeHeadY * snakeSize >= screenHeight || snakeHeadY * snakeSize< 0) {
+        setState("GAME OVER");
     }
 }
 
