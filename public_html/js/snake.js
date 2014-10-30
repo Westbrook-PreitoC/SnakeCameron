@@ -16,6 +16,7 @@ var screenHeight;
 
 var gameState;
 var gameOverMenu;
+var restartButton;
 
 /* ---------------------------------------------------------------------------
  * Executing Game Code
@@ -45,6 +46,10 @@ function gameInitialize() {
     document.addEventListener("keydown", keyboardHandler);
     
     gameOverMenu = document.getElementById("gameover");
+    centerMenuPosition(gameOverMenu);
+    
+    restartButton = document.getElementById("restartButton");
+    restartButton.addEventListener("click", gameRestart);
     
     setState("PLAY");
 }
@@ -63,6 +68,12 @@ function gameDraw() {
     context.fillRect(0, 0, screenWidth, screenHeight);
 }
 
+function gameRestart() {
+    snakeInitialize();
+    foodInitialize();
+    setState("PLAY");
+}
+
 /* ---------------------------------------------------------------------------
  * Snake Functions
  *  --------------------------------------------------------------------------
@@ -70,7 +81,7 @@ function gameDraw() {
 
 function snakeInitialize() {
     snake = [];
-    snakeLength = 2;
+    snakeLength = 1;
     snakeSize = 20;
     snakeDirection = "down";
 
@@ -204,12 +215,22 @@ function setState(state) {
     showMenu(state);
 }
 
+/* ------------------------------------------------------------------------
+ * Menu Functions
+ * ------------------------------------------------------------------------
+ */
+
 function displayMenu(menu) {
     menu.style.visibility = "visible";
 }
 
 function showMenu(state) {
     if(state == "GAME OVER") {
-        displaymenu(gameOverMenu);
+        displayMenu(gameOverMenu);
     }
+}
+
+function cenerMenuPosition(menu) {
+    menu.style.top = (screenHeight / 2) - (menu.offsetHeight / 2) + "px";
+    menu.style.left = (screenWidth / 2) - (menu.offsetHeight / 2) + "px";
 }
