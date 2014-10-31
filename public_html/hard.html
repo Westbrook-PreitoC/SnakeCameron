@@ -13,8 +13,18 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>    
      <body>
-         <h1><a href="easy.html">Easy</a></h1>
-         <h1><a href="medium.html">Medium</a></h1>
-         <h1><a href="hard.html">Hard</a></h1>
+         <section id="playHUD">
+             <h2 id="scoreboard"></h2>
+         </section>
+         
+         <section id="gameOver">
+             <h1 class="title">GAME OVER!</h1>
+             <h3 id="restartButton">Restart?</h3>
+             <h3 id="restartButton"><a href="index.html">Back To Main Menu</a></h3>
+         </section>
+         
+        <canvas id="game-screen"></canvas>
+        
+        <script src="js/snake3.js"></script>
      </body>
 </html>
