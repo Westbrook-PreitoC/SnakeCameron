@@ -211,7 +211,9 @@ function checkWallCollisions(snakeHeadX, snakeHeadY) {
     if (snakeHeadY * snakeSize >= screenHeight || snakeHeadY * snakeSize< 0) {
         setState("GAME OVER");
     }
-}function checkSnakeCollision(snakeHeadX, snakeHeadY) {
+}
+
+function checkSnakeCollision(snakeHeadX, snakeHeadY) {
     for(var index = 1; index < snake.length; index++) {
         if(snakeHeadX == snake[index].x && snakeHeadY == snake[index].y) {
             setState("GAME OVER")
