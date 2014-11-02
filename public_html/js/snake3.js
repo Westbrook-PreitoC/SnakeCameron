@@ -28,7 +28,7 @@ var scoreboard;
 gameInitialize();
 snakeInitialize();
 foodInitialize();
-setInterval(gameLoop, 1000 / 45);
+setInterval(gameLoop, 1000 / 40);
 
 /* ---------------------------------------------------------------------------
  * Game Functions
@@ -88,7 +88,7 @@ function gameRestart() {
 
 function snakeInitialize() {
     snake = [];
-    snakeLength = 1;
+    snakeLength = 2;
     snakeSize = 20;
     snakeDirection = "down";
 
